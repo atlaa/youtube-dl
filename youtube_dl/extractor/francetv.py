@@ -34,17 +34,27 @@ class FranceTVBaseInfoExtractor(InfoExtractor):
 
 
 class FranceTVEmissionIE(FranceTVBaseInfoExtractor):
-    _VALID_URL = r'https://www.france.tv/france-5/la-maison-france-5/'
+    _VALID_URL = r'https://www.france.tv/france-[0-9]/(?:[^/]+/)'
 
     _TESTS = [{
-        # La maison France 5
-        'url': 'https://www.france.tv/france-5/la-maison-france-5/toutes-les-videos/',
+        'url': 'https://www.france.tv/france-5/la-maison-france-5/',
+        'only_matching': True
+    },
+        {
+        'url': 'https://www.france.tv/france-5/silence-ca-pousse/',
+        'only_matching': True
+    },
+        {
+        'url': 'https://www.france.tv/france-5/c-politique-la-suite/',
+        'only_matching': True
+    },
+        {
+        'url': 'https://www.france.tv/france-2/envoye-special/',
         'only_matching': True
     }]
 
     def _real_extract(self, url):
-        #display_id = self._match_id(url)
-        display_id = 'MaisonFrance5'
+        display_id = 'FranceTV'
 
         webpage = self._download_webpage(url, display_id)
 
@@ -58,7 +68,7 @@ class FranceTVEmissionIE(FranceTVBaseInfoExtractor):
 
         entries = []
         playlist_id = "francetv"
-        playlist_title = "Maison France 5"
+        playlist_title = "FranceTV"
         playlist_description = "desc"
 
         entries = [
