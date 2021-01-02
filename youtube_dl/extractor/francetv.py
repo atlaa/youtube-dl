@@ -18,6 +18,7 @@ from ..utils import (
     try_get,
     url_or_none,
     urljoin,
+    orderedSet
 )
 from .dailymotion import DailymotionIE
 
@@ -30,6 +31,43 @@ class FranceTVBaseInfoExtractor(InfoExtractor):
         return self.url_result(
             full_id, ie=FranceTVIE.ie_key(),
             video_id=video_or_full_id.split('@')[0])
+
+
+class FranceTVEmissionIE(FranceTVBaseInfoExtractor):
+    _VALID_URL = r'https://www.france.tv/france-5/la-maison-france-5/'
+
+    _TESTS = [{
+        # La maison France 5
+        'url': 'https://www.france.tv/france-5/la-maison-france-5/toutes-les-videos/',
+        'only_matching': True
+    }]
+
+    def _real_extract(self, url):
+        #display_id = self._match_id(url)
+        display_id = 'MaisonFrance5'
+
+        webpage = self._download_webpage(url, display_id)
+
+        container = self._search_regex(
+            r'(?s)(<div[^>]+class=["\']c-section-slider.+)', webpage,
+            'FranceTV_extractor', default="webpage")
+
+        ttt = orderedSet(re.findall(
+            r'(\/(\S*)\/(\S*)\/(\d*)(\S*)\.html)',
+            container))
+
+        entries = []
+        playlist_id = "francetv"
+        playlist_title = "Maison France 5"
+        playlist_description = "desc"
+
+        entries = [
+            self.url_result("https://www.france.tv%s" % ii[0])
+            for ii in orderedSet(ttt)
+        ]
+
+        return self.playlist_result(
+            entries, playlist_id, playlist_title, playlist_description)
 
 
 class FranceTVIE(InfoExtractor):

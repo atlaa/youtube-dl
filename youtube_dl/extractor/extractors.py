@@ -382,6 +382,7 @@ from .franceculture import FranceCultureIE
 from .franceinter import FranceInterIE
 from .francetv import (
     FranceTVIE,
+    FranceTVEmissionIE,
     FranceTVSiteIE,
     FranceTVEmbedIE,
     FranceTVInfoIE,
@@ -1538,7 +1539,7 @@ from .youtube import (
     YoutubeRecommendedIE,
     YoutubeSearchDateIE,
     YoutubeSearchIE,
-    #YoutubeSearchURLIE,
+    # YoutubeSearchURLIE,
     YoutubeSubscriptionsIE,
     YoutubeTruncatedIDIE,
     YoutubeTruncatedURLIE,
