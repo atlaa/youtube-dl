@@ -380,6 +380,10 @@ from .foxnews import (
 from .foxsports import FoxSportsIE
 from .franceculture import FranceCultureIE
 from .franceinter import FranceInterIE
+from .francemusique import (
+    FranceMusiqueIE,
+    FranceMusiqueEmissionIE
+)
 from .francetv import (
     FranceTVIE,
     FranceTVEmissionIE,
