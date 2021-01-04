@@ -60,10 +60,11 @@ class FranceMusiqueIE(InfoExtractor):
             webpage, 'upload_date', default=None)
 
         # Mardi 18 juin 2019
-        saveLocale = locale.getlocale()
-        locale.setlocale(locale.LC_TIME, "fr_FR")
-        upload_date = date_time_obj = datetime.datetime.strptime(upload_date, '%A %d %B %Y').date()
-        #locale.setlocale(saveLocale[0], saveLocale[1])
+        try:
+            locale.setlocale(locale.LC_TIME, "fr_FR")
+            upload_date = date_time_obj = datetime.datetime.strptime(upload_date, '%A %d %B %Y').date()
+        except:
+            print("error cannot parse upload_date")
 
         ext = determine_ext(video_url.lower())
 
@@ -93,6 +94,9 @@ class FranceMusiqueEmissionIE(InfoExtractor):
     def _real_extract(self, url):
         display_id = 'FranceMusique'
         entries = []
+
+        print(locale.getlocale())
+        print("*****")
 
         for page_num in itertools.count(1):
             webpage = self._download_webpage(
