@@ -9,7 +9,8 @@
 #python -m youtube_dl https://www.francemusique.fr/emissions/le-cri-du-patchwork/cri-4-un-besoin-de-cri-73036  -o "%(album)s - %(title)s.%(ext)s" -x --audio-format mp3 --add-metadata --embed-thumbnail --prefer-ffmpeg
 
 
-python -m youtube_dl https://www.francemusique.fr/emissions/le-cri-du-patchwork  --max-downloads 4 -o "%(album)s - %(title)s.%(ext)s" -x --audio-format mp3 --add-metadata --embed-thumbnail --prefer-ffmpeg
+#python -m youtube_dl https://www.francemusique.fr/emissions/le-cri-du-patchwork  --max-downloads 4 -o "%(album)s - %(title)s.%(ext)s" -x --audio-format mp3 --add-metadata --embed-thumbnail --prefer-ffmpeg
 #python -m youtube_dl https://www.francemusique.fr/emissions/le-cri-du-patchwork/cri-4-un-besoin-de-cri-73036  -o "%(album)s - %(title)s.%(ext)s" -x --audio-format mp3 --add-metadata --embed-thumbnail --prefer-ffmpeg
 #python -m youtube_dl https://www.francemusique.fr/emissions/le-cri-du-patchwork/cri-5-un-dernier-cri-73209  -o "%(album)s - %(title)s.%(ext)s" -x --audio-format mp3 --add-metadata --embed-thumbnail --prefer-ffmpeg
 
+python -m youtube_dl https://www.france.tv/france-5/la-maison-france-5/

@@ -463,6 +463,7 @@ from .hungama import (
     HungamaSongIE,
 )
 from .hypem import HypemIE
+from .hypnotube import HypnotubeVideosIE
 from .ign import (
     IGNIE,
     OneUPIE,
@@ -907,6 +908,7 @@ from .pornhub import (
     PornHubUserVideosUploadIE,
 )
 from .pornotube import PornotubeIE
+from .porntubeclub import PorntubeclubVideosIE
 from .pornovoisines import PornoVoisinesIE
 from .pornoxo import PornoXOIE
 from .puhutv import (
