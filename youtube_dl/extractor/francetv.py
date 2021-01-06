@@ -34,7 +34,7 @@ class FranceTVBaseInfoExtractor(InfoExtractor):
 
 
 class FranceTVEmissionIE(FranceTVBaseInfoExtractor):
-    _VALID_URL = r'https://www.france.tv/france-[0-9]/(?:[^/]+/)'
+    _VALID_URL = r'https://www.france.tv/france-[0-9]/(?:[^/]+/)$'
 
     _TESTS = [{
         'url': 'https://www.france.tv/france-5/la-maison-france-5/',
