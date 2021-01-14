@@ -15,7 +15,7 @@ import itertools
 
 
 class PorntubeclubVideosIE(InfoExtractor):
-    _VALID_URL = r'https://porn-tube-club.com/a1609538400/$'
+    _VALID_URL = r'https://porn-tube-club.com/a[0-9]*/$'
 
     def _real_extract(self, url):
         display_id = 'Hypnotube'
