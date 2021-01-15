@@ -67,17 +67,13 @@ class FranceTVEmissionIE(FranceTVBaseInfoExtractor):
             container))
 
         entries = []
-        playlist_id = "francetv"
-        playlist_title = "FranceTV"
-        playlist_description = "desc"
 
         entries = [
             self.url_result("https://www.france.tv%s" % ii[0])
             for ii in orderedSet(ttt)
         ]
 
-        return self.playlist_result(
-            entries, playlist_id, playlist_title, playlist_description)
+        return self.playlist_result(entries)
 
 
 class FranceTVIE(InfoExtractor):
