@@ -47,3 +47,44 @@ class HypnotubeVideosIE(InfoExtractor):
 
         return self.playlist_result(
             entries)
+
+
+class HypnotubeIE(InfoExtractor):
+    _VALID_URL = r'https://hypnotube.com/video/[a-zA-Z0-9-]+-(?P<id>[0-9]+)\.html$'
+
+    # https://hypnotube.com/video/safe-porn-for-good-sissies-11288.html
+
+    def _real_extract(self, url):
+        video_id = self._match_id(url)
+
+        webpage = self._download_webpage(url, video_id)
+
+        print('VIDEO')
+
+        video_data = extract_attributes(self._search_regex(
+            r'''(<source[^>]+>)''',
+            webpage, 'video data'))
+
+        video_url = video_data['src']
+
+        title = self._search_regex(
+            (r'<h1>([^<]+)</h1>', r'<title>([^<]+) - VidLii<'), webpage,
+            'title')
+
+        uploader_data = extract_attributes(self._search_regex(
+            r'''(<a[^>]+href="https://hypnotube.com/user[^>]+>)''',
+            webpage, 'video data'))
+
+        uploader = uploader_data['title']
+
+        return {
+            'yo': 'hello',
+            'id': video_id,
+            'title': title,
+            'uploader': uploader,
+            'formats': [{
+                'url': video_url,
+                'vcodec': 'none',
+            }],
+
+        }

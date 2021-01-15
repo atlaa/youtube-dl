@@ -477,7 +477,10 @@ from .hungama import (
     HungamaSongIE,
 )
 from .hypem import HypemIE
-from .hypnotube import HypnotubeVideosIE
+from .hypnotube import (
+    HypnotubeIE,
+    HypnotubeVideosIE
+)
 from .ign import (
     IGNIE,
     OneUPIE,
