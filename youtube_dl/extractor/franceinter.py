@@ -64,8 +64,6 @@ class FranceInterIE(InfoExtractor):
 
         webpage = self._download_webpage(url, video_id)
 
-        print('VIDEO')
-
         video_url = self._search_regex(
             r'(?s)<div[^>]+class=["\']page-diffusion["\'][^>]*>.*?<button[^>]+data-url=(["\'])(?P<url>(?:(?!\1).)+)\1',
             webpage, 'video url', group='url')
