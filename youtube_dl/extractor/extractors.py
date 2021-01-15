@@ -361,6 +361,7 @@ from .filmon import (
     FilmOnChannelIE,
 )
 from .filmweb import FilmwebIE
+from .fip import FipVideosIE
 from .firsttv import FirstTVIE
 from .fivemin import FiveMinIE
 from .fivetv import FiveTVIE
