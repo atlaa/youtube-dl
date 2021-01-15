@@ -54,9 +54,11 @@
  - **Aparat**
  - **AppleConnect**
  - **AppleDaily**: 臺灣蘋果日報
+ - **ApplePodcasts**
  - **appletrailers**
  - **appletrailers:section**
  - **archive.org**: archive.org videos
+ - **ArcPublishing**
  - **ARD**
  - **ARD:mediathek**
  - **ARDBetaMediathek**
@@ -97,6 +99,10 @@
  - **BellMedia**
  - **Bet**
  - **bfi:player**
+ - **bfmtv**
+ - **bfmtv:article**
+ - **bfmtv:live**
+ - **BibelTV**
  - **Bigflix**
  - **Bild**: Bild.de
  - **BiliBili**
@@ -335,6 +341,8 @@
  - **Go**
  - **GodTube**
  - **Golem**
+ - **google:podcasts**
+ - **google:podcasts:feed**
  - **GoogleDrive**
  - **Goshgay**
  - **GPUTechConf**
@@ -369,6 +377,8 @@
  - **HungamaSong**
  - **Hypem**
  - **ign.com**
+ - **IHeartRadio**
+ - **iheartradio:podcast**
  - **imdb**: Internet Movie Database trailers
  - **imdb:list**: Internet Movie Database lists
  - **Imgur**
@@ -610,6 +620,7 @@
  - **Npr**
  - **NRK**
  - **NRKPlaylist**
+ - **NRKRadioPodkast**
  - **NRKSkole**: NRK Skole
  - **NRKTV**: NRK TV and NRK Radio
  - **NRKTVDirekte**: NRK TV Direkte and NRK Radio Direkte
@@ -689,7 +700,6 @@
  - **Playwire**
  - **pluralsight**
  - **pluralsight:course**
- - **plus.google**: Google Plus
  - **podomatic**
  - **Pokemon**
  - **PolskieRadio**
@@ -813,12 +823,13 @@
  - **ShowRoomLive**
  - **Sina**
  - **sky.it**
+ - **sky:news**
+ - **sky:sports**
+ - **sky:sports:news**
  - **skyacademy.it**
  - **SkylineWebcams**
- - **SkyNews**
  - **skynewsarabia:article**
  - **skynewsarabia:video**
- - **SkySports**
  - **Slideshare**
  - **SlidesLive**
  - **Slutload**
@@ -859,6 +870,7 @@
  - **stanfordoc**: Stanford Open ClassRoom
  - **Steam**
  - **Stitcher**
+ - **StitcherShow**
  - **Streamable**
  - **streamcloud.eu**
  - **StreamCZ**
@@ -1120,7 +1132,7 @@
  - **WWE**
  - **XBef**
  - **XboxClips**
- - **XFileShare**: XFileShare based sites: ClipWatching, GoUnlimited, GoVid, HolaVid, Streamty, TheVideoBee, Uqload, VidBom, vidlo, VidLocker, VidShare, VUp, XVideoSharing
+ - **XFileShare**: XFileShare based sites: Aparat, ClipWatching, GoUnlimited, GoVid, HolaVid, Streamty, TheVideoBee, Uqload, VidBom, vidlo, VidLocker, VidShare, VUp, XVideoSharing
  - **XHamster**
  - **XHamsterEmbed**
  - **XHamsterUser**
