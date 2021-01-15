@@ -95,9 +95,7 @@ class FranceMusiqueEmissionIE(InfoExtractor):
         display_id = 'FranceMusique'
         entries = []
 
-        print(locale.getlocale())
-        print("*****")
-        print("**************** FRANCE MUSIQUE *******")
+        print("Locale:", locale.getlocale())
 
         for page_num in itertools.count(1):
             webpage = self._download_webpage(
