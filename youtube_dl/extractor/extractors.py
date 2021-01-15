@@ -387,7 +387,10 @@ from .foxnews import (
 )
 from .foxsports import FoxSportsIE
 from .franceculture import FranceCultureIE
-from .franceinter import FranceInterIE
+from .franceinter import (
+    FranceInterEmissionIE,
+    FranceInterIE
+)
 from .francemusique import (
     FranceMusiqueIE,
     FranceMusiqueEmissionIE

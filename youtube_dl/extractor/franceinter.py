@@ -1,18 +1,56 @@
 # coding: utf-8
 from __future__ import unicode_literals
 
+import re
+import itertools
+
+
 from .common import InfoExtractor
-from ..utils import month_by_name
+from ..utils import (
+    month_by_name,
+    orderedSet
+)
+
+
+class FranceInterEmissionIE(InfoExtractor):
+    _VALID_URL = r'https?://(?:www\.)?franceinter\.fr/emissions/(?P<id>[^/])+$'
+    # https://www.franceinter.fr/emissions/la-chronique-de-xavier-de-la-porte
+
+    def _real_extract(self, url):
+        display_id = self._match_id(url)
+        entries = []
+
+        for page_num in itertools.count(1):
+            webpage = self._download_webpage(
+                url, display_id, 'Downloading page %d' % page_num,
+                query={'p': page_num})
+
+            ttt = orderedSet(re.findall(
+                r'"(?P<id>https?://(?:www\.)?franceinter\.fr/emissions/[a-z0-9A-Z-]+/[^?"/]+)"',
+                webpage))
+
+            entries = entries + [
+                self.url_result("%s" % ii)
+                for ii in orderedSet(ttt)
+            ]
+
+            next_url = self._search_regex(r'<li\s+class=(["\'])pager-item last',
+                                          webpage, 'list_next_url', default=None)
+
+            if not next_url:
+                break
+
+        return self.playlist_result(entries)
 
 
 class FranceInterIE(InfoExtractor):
-    _VALID_URL = r'https?://(?:www\.)?franceinter\.fr/emissions/(?P<id>[^?#]+)'
+    _VALID_URL = r'https?://(?:www\.)?franceinter\.fr/emissions/[a-z0-9A-Z-]+/(?P<id>[^?#/]+)'
 
     _TEST = {
         'url': 'https://www.franceinter.fr/emissions/affaires-sensibles/affaires-sensibles-07-septembre-2016',
         'md5': '9e54d7bdb6fdc02a841007f8a975c094',
         'info_dict': {
-            'id': 'affaires-sensibles/affaires-sensibles-07-septembre-2016',
+            'id': 'affaires-sensibles-07-septembre-2016',
             'ext': 'mp3',
             'title': 'Affaire Cahuzac : le contentieux du compte en Suisse',
             'description': 'md5:401969c5d318c061f86bda1fa359292b',
@@ -25,6 +63,8 @@ class FranceInterIE(InfoExtractor):
         video_id = self._match_id(url)
 
         webpage = self._download_webpage(url, video_id)
+
+        print('VIDEO')
 
         video_url = self._search_regex(
             r'(?s)<div[^>]+class=["\']page-diffusion["\'][^>]*>.*?<button[^>]+data-url=(["\'])(?P<url>(?:(?!\1).)+)\1',
