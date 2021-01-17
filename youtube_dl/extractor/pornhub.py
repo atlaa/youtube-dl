@@ -488,6 +488,10 @@ class PornHubPagedPlaylistBaseIE(PornHubPlaylistBaseIE):
         host = mobj.group('host')
         item_id = mobj.group('id')
 
+        webpage = self._download_webpage(url, item_id)
+        playlist_title = self._html_search_regex(r'<h1 itemprop="name">(.+?)</h1>', webpage, 'title', flags=re.DOTALL)
+        print('playlist_title: ', playlist_title)
+
         page = int_or_none(self._search_regex(
             r'\bpage=(\d+)', url, 'page', default=None))
 
@@ -508,7 +512,7 @@ class PornHubPagedPlaylistBaseIE(PornHubPlaylistBaseIE):
             if not self._has_more(webpage):
                 break
 
-        return self.playlist_result(orderedSet(entries), item_id)
+        return self.playlist_result(orderedSet(entries), item_id, playlist_title)
 
 
 class PornHubPagedVideoListIE(PornHubPagedPlaylistBaseIE):
