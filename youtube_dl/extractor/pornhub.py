@@ -12,7 +12,7 @@ from ..compat import (
     compat_str,
     compat_urllib_request,
 )
-from .openload import PhantomJSwrapper
+#from .openload import PhantomJSwrapper
 from ..utils import (
     determine_ext,
     ExtractorError,
@@ -38,6 +38,7 @@ class PornHubBaseIE(InfoExtractor):
 
         webpage, urlh = ret
 
+        '''
         if any(re.search(p, webpage) for p in (
                 r'<body\b[^>]+\bonload=["\']go\(\)',
                 r'document\.cookie\s*=\s*["\']RNKEY=',
@@ -49,6 +50,7 @@ class PornHubBaseIE(InfoExtractor):
             phantom = PhantomJSwrapper(self, required_version='2.0')
             phantom.get(url, html=webpage)
             webpage, urlh = dl(*args, **kwargs)
+        '''
 
         return webpage, urlh
 
@@ -491,6 +493,13 @@ class PornHubPagedPlaylistBaseIE(PornHubPlaylistBaseIE):
 
         page = int_or_none(self._search_regex(
             r'\bpage=(\d+)', url, 'page', default=None))
+
+        try:
+            webpage = self._download_webpage(
+                url, item_id, 'Trying if 404 on /videos')
+        except ExtractorError as e:
+            if isinstance(e.cause, compat_HTTPError) and e.cause.code == 404:
+                url = url.replace('/videos', '')
 
         entries = []
         for page_num in (page, ) if page is not None else itertools.count(1):
