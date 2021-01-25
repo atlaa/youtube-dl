@@ -18,7 +18,7 @@ class PorntubeclubVideosIE(InfoExtractor):
     _VALID_URL = r'https://porn-tube-club.com/a[0-9]*/$'
 
     def _real_extract(self, url):
-        display_id = 'Hypnotube'
+        display_id = 'PornTubeClub'
         entries = []
 
         for page_num in itertools.count(1):
