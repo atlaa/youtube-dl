@@ -5,6 +5,7 @@ import functools
 import itertools
 import operator
 import re
+from datetime import datetime
 
 from .common import InfoExtractor
 from ..compat import (
@@ -403,6 +404,7 @@ class PornHubIE(PornHubBaseIE):
             'tags': extract_list('tags'),
             'categories': extract_list('categories'),
             'subtitles': subtitles,
+            'today': datetime.today().strftime('%Y-%m-%d')
         }, info)
 
 

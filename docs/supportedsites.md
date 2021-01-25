@@ -291,6 +291,7 @@
  - **filmon**
  - **filmon:channel**
  - **Filmweb**
+ - **FipVideos**
  - **FiveThirtyEight**
  - **FiveTV**
  - **Flickr**
@@ -307,8 +308,12 @@
  - **france2.fr:generation-what**
  - **FranceCulture**
  - **FranceInter**
+ - **FranceInterEmission**
+ - **FranceMusique**
+ - **FranceMusiqueEmission**
  - **FranceTV**
  - **FranceTVEmbed**
+ - **FranceTVEmission**
  - **francetvinfo.fr**
  - **FranceTVJeunesse**
  - **FranceTVSite**
@@ -376,6 +381,8 @@
  - **Hungama**
  - **HungamaSong**
  - **Hypem**
+ - **Hypnotube**
+ - **HypnotubeVideos**
  - **ign.com**
  - **IHeartRadio**
  - **iheartradio:podcast**
@@ -418,7 +425,8 @@
  - **Katsomo**
  - **KeezMovies**
  - **Ketnet**
- - **KhanAcademy**
+ - **khanacademy**
+ - **khanacademy:unit**
  - **KickStarter**
  - **KinjaEmbed**
  - **KinoPoisk**
@@ -717,6 +725,7 @@
  - **PornoVoisines**
  - **PornoXO**
  - **PornTube**
+ - **PorntubeclubVideos**
  - **PressTV**
  - **prosiebensat1**: ProSiebenSat.1 Digital
  - **puhutv**
